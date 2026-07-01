@@ -69,5 +69,5 @@ Key idea:
 'num + complement = target`
 
 Mistake to avoid:
-- Check for the complement before storing current number
+- Check for the complement before storing current number so we dont store the same index twice
 
