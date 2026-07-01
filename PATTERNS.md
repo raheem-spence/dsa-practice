@@ -18,6 +18,7 @@ Approach:
 - If the loop finishes, return `True`
   
 Time: O(n) since we have to loop through each string once
+
 Space: O(n) worst case we have to store each character form string s in hash map
 
 Mistakes to avoid:
