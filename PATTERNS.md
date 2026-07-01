@@ -12,7 +12,7 @@ Pattern: hash map frequency count
 Approach: 
 - If lengths differ, return `False`
 - Use hash map where **key** is the character and the **value** is the character count
-- Count characters in s and store in hash map -- character: count
+- Count characters in s
 - Loop through `t` and subtract from those counts
 - If `t` needs a character with count `0`, return `False` meaning that character is unavailable
   so the two are not anagrams
