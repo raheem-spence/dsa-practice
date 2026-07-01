@@ -4,7 +4,9 @@
 
 ### 242. Valid Anagram
 Given: two strings s and t
+
 Goal: return `True` if they are anagrams, otherwise `False`
+
 Pattern: hash map frequency count
 
 Approach: 
