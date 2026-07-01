@@ -27,6 +27,7 @@ Mistakes to avoid:
   stores the default value to `0`
 
 
+
 ### 217. Contains Duplicate
 Given: array of numbers `nums`
 
@@ -45,6 +46,8 @@ Space: O(n), worst casea all values are unique and stored in set
 
 Key idea:
 - `set(nums)` removes any duplicates
+
+
 
 ### 1. Two Sum
 Given: array of integers `nums` and an integer `target`
