@@ -194,3 +194,26 @@ Mistake to avoid:
 - Use `left <= right` so you still check the final remaining element
 - Calculate mid inside the loop using the current `left` and `right`
 - Remember `mid = left + (right - left) // 2`, not just `(right - left) // 2`
+
+## Arrays & Math
+### 268. Missing Number
+Given: array `nums` containing `n` distinct numbers from `0` to `n`
+
+Goal: return missing number from the range `0` to `n`
+
+Pattern: arrays / math
+
+Approach: 
+- Since the numbers should be from `0` to `n`, calculate the expected sum
+- Calculate the actual sum of `nums`
+- The missing number is `expected_sum - actual_sum`
+
+Formula:
+`expected_sum = n * (n + 1) // 2`
+
+Time: O(n), we loop through `nums` once to find sum
+
+Space: O(1), we only use a few variables
+
+Mistake to avoid:
+- The full range is based on `len(nums)`, not the last value in the array because the array is not gauranteed to be sorted
