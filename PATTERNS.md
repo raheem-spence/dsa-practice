@@ -74,6 +74,8 @@ Key idea:
 Mistake to avoid:
 - Check for the complement before storing current number so we dont store the same index twice
 
+  
+
 ## Two Pointers
 ### 125. Valid Palindrome
 Given: a string `s`
@@ -97,4 +99,7 @@ Mistake to avoid:
 Use `continue` after skipping a non-alphanumeric character so the loop restarts and re-checks the new pointer position before comparing. Why? because say we have two non-alphanumeric characters back-to-back, without `continue` we will move say the left pointer inward from one bad character to another not checking the next bad character so we will end up comparing a bad character to a possible good character at the right pointer.
 
 
+
+## Arrays / One-Pass Tracking
+### 121. Best Time to Buy and Sell Stock
 
