@@ -100,6 +100,32 @@ First pass gets the counts; second pass preserves original order
 
 
 
+### 169. Majority Element
+Given: array `nums` of size `n`
+
+Goal: return the element that appears more than `n / 2` times
+
+Pattern: hash map frequency count 
+
+Map: `num -> count`
+
+Approach:
+- Use a hash map to count each number
+- Set threshold as `len(nums) // 2`
+- As each count is updated, check if it is greater than the threshold
+- Return the number once its count passes the threshold
+
+Time: O(n)
+
+Space: O(n)
+
+Key idea:
+The majority element appears more than half the array length
+
+Alternative approach:
+Boyer-Moore Voting Algorithm can solve this in O(1) space, but the hash map version is clearer for now
+
+
 ## Arrays & Math
 ### 268. Missing Number
 Given: array `nums` containing `n` distinct numbers from `0` to `n`
