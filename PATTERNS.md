@@ -89,7 +89,7 @@ Approach:
 
 Time: O(n), each pointer moves through string at most once
 
-Space: O(1)
+Space: O(1), only using a fixed number of extra variables
 
 Key idea: Compare valid characters from both ends of string moving inward
 
