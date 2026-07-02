@@ -76,6 +76,30 @@ Mistake to avoid:
 
 
 
+### 387. First Unique Character in a String
+Given: a string `s`
+
+Goal: return the index of the first non-repeating character, or `-1` if none exists
+
+Pattern: hash map frequency count + second pass
+
+Map: `char -> count`
+
+Approach: 
+- Count each character using hash map
+- Loop through the string again with `enumerate` cause we want both index and character
+- Return the first index where `char_count[char] == 1`
+- If no unique character exists, return `-1`
+
+Time: O(n), we loop through string twice but O(2n) simplifies to O(n)
+
+Space: O(n), worst case we store all unique characters
+
+Key idea:
+First pass gets the counts; second pass preserves original order
+
+
+
 ## Arrays & Math
 ### 268. Missing Number
 Given: array `nums` containing `n` distinct numbers from `0` to `n`
