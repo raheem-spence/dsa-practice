@@ -82,6 +82,8 @@ Given: a string `s`
 
 Goal: return `True` if `s` is a palindrome after ignoring non-alphanumeric characters and case
 
+Pattern: two pointers
+
 Approach:
 - Set left pointer at start and right pointer at end
 - While `left < right`, skip non-alphanumeric characters using `.isalnum()` method
@@ -98,7 +100,30 @@ Key idea: Compare valid characters from both ends of string moving inward
 Mistake to avoid:
 Use `continue` after skipping a non-alphanumeric character so the loop restarts and re-checks the new pointer position before comparing. Why? because say we have two non-alphanumeric characters back-to-back, without `continue` we will move say the left pointer inward from one bad character to another not checking the next bad character so we will end up comparing a bad character to a possible good character at the right pointer.
 
+### 283. Move Zeroes
+Given: array `nums`
 
+Goal: move all `0`s to the end while keeping the relative order of non-zero elements 
+
+Pattern: two pointers / in-place array
+
+Approach:
+- Use `l` to track where the next non-zero element should go
+- Use `r` to scan through the array
+- When `nums[r]` is non-zero, swap `nums[r]` with `nums[l]`
+- Move `l` forward after placing a non-zero
+- Always move `r` forward
+
+Time: O(n), `r` scans array onces
+
+Space: O(1), we modify the array in place an only use pointers
+
+Key idea:
+- `l = next position for a non-zero`
+- `r = scanner looking for non-zero values`
+
+Mistake to avoid:
+- Avoid using `pop()` from the middle of the array because it shifts elements and can make the solution O(n<sup>2</sup>)
 
 ## Sliding Window
 ### 121. Best Time to Buy and Sell Stock
