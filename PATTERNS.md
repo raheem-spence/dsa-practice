@@ -74,3 +74,27 @@ Key idea:
 Mistake to avoid:
 - Check for the complement before storing current number so we dont store the same index twice
 
+## Two Pointers
+### 125. Valid Palindrome
+Given: a string `s`
+
+Goal: return `True` if `s` is a palindrome after ignoring non-alphanumeric characters and case
+
+Approach:
+- Set left pointer at start and right pointer at end
+- While `left < right`, skip non-alphanumeric characters using `.isalnum()` method
+- Compare lowercase versions of both characters using `.lower()` method
+- If they differ, return `False`
+- If they match, move both pointers inward i.e. increment the left and decrement the right
+
+Time: O(n), each pointer moves through string at most once
+
+Space: O(1)
+
+Key idea: Compare valid characters from both ends of string moving inward
+
+Mistake to avoid:
+Use `continue` after skipping a non-alphanumeric character so the loop restarts and re-checks the new pointer position before comparing. Why? because say we have two non-alphanumeric characters back-to-back, without `continue` we will move say the left pointer inward from one bad character to another not checking the next bad character so we will end up comparing a bad character to a possible good character at the right pointer.
+
+
+
