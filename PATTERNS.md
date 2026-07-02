@@ -100,6 +100,6 @@ Use `continue` after skipping a non-alphanumeric character so the loop restarts 
 
 
 
-## Arrays / One-Pass Tracking
+## Sliding Window
 ### 121. Best Time to Buy and Sell Stock
 
