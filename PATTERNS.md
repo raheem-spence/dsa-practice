@@ -139,3 +139,33 @@ Time: O(n), one pass through the string
 
 Space: O(n), worst case the stack could hold every character in the string
 
+## Binary Search
+### 704. Binary Search
+Given: sorted array `nums` and an integer `target`
+
+Goal: return index of `target`, or `-1` if it is not found
+
+Pattern: binary search
+
+Approach: 
+- Set `left` at the start of the array and `right` at the end
+- While `left <= right`, calculate middle index
+- If `nums[mid] == target`, return `mid`
+- If `nums[mid] > target`, search the left half by moving `right`
+- If `nums[mid] < target`, search the right half by moving `left`
+- If loop ends, return `-1`
+
+Time: O(log n), because the search space is cut in half each loop
+
+Space: O(1), because we only use pointers/variables
+
+Key idea: 
+Each step cuts the search space in half
+
+Middle formula:
+`mid = left + (right - left) // 2`
+
+Mistake to avoid:
+- Use `left <= right` so you still check the final remaining element
+- Calculate mid inside the loop using the current `left` and `right`
+- Remember `mid = left + (right - left) // 2`, not just `(right - left) // 2`
