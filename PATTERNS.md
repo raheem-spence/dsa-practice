@@ -102,4 +102,19 @@ Use `continue` after skipping a non-alphanumeric character so the loop restarts 
 
 ## Sliding Window
 ### 121. Best Time to Buy and Sell Stock
+Given: array of prices where `prices[i]` is the stock price day `i`
+
+Goal: return the maximum profit from buying once and selling once later
+
+Pattern: sliding window / one-pass tracking
+
+Approach: 
+- Use two pointers: `left` for the best buy day so far and `right` for the current sell day
+- If `prices[right] < prices[left]`, move `left` to `right` becasue we found a cheaper buy day
+- Calculate profit with `prices[right] - prices[left]
+- Keep updating the max profit as `right` moves through the array using `max()` function
+
+Time: O(n), because `right` scans through the array once
+
+Space: O(1), because we only use pointers and a max profit variable
 
