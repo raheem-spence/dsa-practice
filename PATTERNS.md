@@ -118,3 +118,24 @@ Time: O(n), because `right` scans through the array once
 
 Space: O(1), because we only use pointers and a max profit variable
 
+## Stack
+### 20. Valid Parentheses
+Given: a string `s` containing only `(`, `)`, `{`, `}`, `[` and `[`
+
+Goal: return `True` if every opening bracket is closed by the same type in the correct order
+
+Pattern: Stack, LIFO (last in, first out)
+
+Map: `closing bracket -> matching opening bracket`
+
+Approach:
+- Push opening brackets onto the stack
+- When a closing bracket appears, check if the stack is empty, if so return `False`
+- If top of stack does not match the expected opening bracket, return `False`
+- Othersise pop the stack
+- At the end, return `True` only if the stack is empty
+
+Time: O(n), one pass through the string
+
+Space: O(n), worst case the stack could hold every character in the string
+
