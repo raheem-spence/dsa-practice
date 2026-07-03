@@ -84,3 +84,29 @@ for page in range(2, total_pages + 1):
 ```
 
 Use `total_pages + 1` because Python `range` excludes the end.
+
+## append() vs extend()
+
+Use `append()` when adding one item:
+```python
+names.append(record.get("name"))
+```
+
+Use `extend()` when adding all items from another list:
+```python
+all_records.extend(data.get("data", []))
+```
+```python
+Example:
+
+a = [1, 2]
+b = [3, 4]
+
+a.append(b)
+# [1, 2, [3, 4]]
+
+a.extend(b)
+# [1, 2, 3, 4]
+```
+
+For pagination, use `extend()` because each page gives a list of records.
