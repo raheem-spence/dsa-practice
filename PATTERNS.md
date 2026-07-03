@@ -213,7 +213,7 @@ Pattern: sliding window / one-pass tracking
 Approach: 
 - Use two pointers: `left` for the best buy day so far and `right` for the current sell day
 - If `prices[right] < prices[left]`, move `left` to `right` becasue we found a cheaper buy day
-- Calculate profit with `prices[right] - prices[left]
+- Calculate profit with `prices[right] - prices[left]`
 - Keep updating the max profit as `right` moves through the array using `max()` function
 
 Time: O(n), because `right` scans through the array once
