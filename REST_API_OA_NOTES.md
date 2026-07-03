@@ -28,6 +28,79 @@ Meaning:
 - `response` is the HTTP response object
 - `response.json()` converts the JSON response body into Python data
 
+## Query Parameters
+
+Query parameters are key-value pairs added to a URL after a `?`.
+
+They are used to filter, search, sort, or choose a page of API results.
+
+Example URL:
+
+```text
+https://jsonmock.hackerrank.com/api/movies/search/?Title=spiderman&page=1
+```
+In that URL:
+```text
+Title=spiderman
+page=1
+```
+are query parameters.
+
+Meaning:
+- `Title=spiderman` means search for movies with "spiderman" in the title
+- `page=1` means return the first page of results
+
+Multiple query params are separated with `&`.
+```text
+?Title=spiderman&page=1
+```
+
+In Python, instead of manually writing the query string, use params:
+```python
+params = {
+    "Title": "spiderman",
+    "page": 1
+}
+
+response = requests.get(url, params=params)
+```
+
+Python turns that into:
+```text
+?Title=spiderman&page=1
+```
+
+Mental model:
+
+Query params are instructions attached to the URL.
+
+
+So:
+
+```text
+base URL = where the API lives
+query params = what specific data you want from it
+```
+
+Example:
+```text
+/api/movies/search/
+```
+means:
+```
+go to the movie search API
+```
+
+But:
+```text
+/api/movies/search/?Title=spiderman&page=1
+```
+
+means:
+```text
+search movies for spiderman and give me page 1
+```
+
 
 ## Core Idea
 
