@@ -23,8 +23,11 @@ Time: O(n) since we have to loop through each string once
 Space: O(n) worst case we have to store each character form string s in hash map
 
 Mistakes to avoid:
-- Remember that `dict.get(char, 0)` handles characters that are not already in the hash map and
-  stores the default value to `0`
+- Remember that `dict.get(char, 0)` handles characters that are not already in the hash map and stores the default value to `0`
+- When using `dict.get(char)`, remember it can return `None` if character is missing from map so don't only chck `if count == 0` because that misses the `None` case
+- Use `if not count` to catch both:
+    - `None` = character does not exist in the map
+    - `0` = character exists but has already been used up
 
 
 
