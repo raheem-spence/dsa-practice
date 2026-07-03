@@ -110,3 +110,50 @@ a.extend(b)
 ```
 
 For pagination, use `extend()` because each page gives a list of records.
+
+
+## Common Operations
+### Filter and return names
+```python
+result = []
+
+for record in all_records:
+    if record.get("population") > threshold:
+        result.append(record.get("name"))
+
+result.sort()
+return result
+```
+### Count matching records
+```python
+count = 0
+
+for record in all_records:
+    if record.get("field") == target:
+        count += 1
+
+return count
+```
+### Return sorted titles
+```python
+titles = []
+
+for record in all_records:
+    titles.append(record.get("Title"))
+
+return sorted(titles)
+```
+
+## Mistakes to Avoid
+- Forgetting pagination
+- Forgetting to include query params on every page request
+- Starting at page 0 instead of page 1
+- Using the wrong JSON key, like results instead of data
+- Returning full records when the prompt asks for names/titles only
+- Getting field capitalization wrong, like title instead of Title
+- Returning `list.sort(`) because `.sort()` returns `None`
+- Using `append()` when I need `extend()`
+
+## Mental Model
+
+REST API OA problem = fetch all input first, then solve like a normal array/list problem.
