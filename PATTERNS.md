@@ -191,7 +191,7 @@ Approach:
 - Move `l` forward after placing a non-zero
 - Always move `r` forward
 
-Time: O(n), `r` scans array onces
+Time: O(n), `r` scans array once
 
 Space: O(1), we modify the array in place an only use pointers
 
