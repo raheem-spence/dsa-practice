@@ -193,7 +193,7 @@ Approach:
 
 Time: O(n), `r` scans array once
 
-Space: O(1), we modify the array in place an only use pointers
+Space: O(1), we modify the array in place and only use pointers
 
 Key idea:
 - `l = next position for a non-zero`
