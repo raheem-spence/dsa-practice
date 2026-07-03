@@ -25,7 +25,7 @@ Meaning:
 - response.json() converts the JSON response body into Python data, usually a dictionary
 
 ## Common Response Shape
-`
+```json
 {
     "page": 1,
     "per_page": 10,
@@ -36,7 +36,7 @@ Meaning:
         {...}
     ]
 }
-`
+```
 
 Important keys:
 - `total_pages` tells me how many pages I need to request
