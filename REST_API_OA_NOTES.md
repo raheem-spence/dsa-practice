@@ -1,5 +1,34 @@
 # REST API OA Notes
 
+## What is a REST API?
+
+A REST API is a way for programs to communicate over the internet using HTTP requests.
+
+In an OA problem, the API usually acts as the input source. Instead of receiving an array directly, I call a URL, get data back, convert it from JSON into Python data, and then solve the problem normally.
+
+Common HTTP methods:
+- `GET` = retrieve data
+- `POST` = create/send data
+- `PUT` / `PATCH` = update data
+- `DELETE` = delete data
+
+For HackerRank REST API questions, I will usually use `GET`.
+
+Example:
+
+```python
+response = requests.get(url, params={"page": 1})
+data = response.json()
+```
+
+Meaning:
+
+- `requests.get(...)` sends a GET request to the API
+- `params={...}` adds query parameters to the URL
+- `response` is the HTTP response object
+- `response.json()` converts the JSON response body into Python data
+
+
 ## Core Idea
 
 A REST API problem is usually just:
