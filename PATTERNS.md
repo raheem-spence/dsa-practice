@@ -45,7 +45,7 @@ Approach:
 
 Time: O(n), creating set requires scanning nums
 
-Space: O(n), worst casea all values are unique and stored in set
+Space: O(n), worst case all values are unique and stored in set
 
 Key idea:
 - `set(nums)` removes any duplicates
