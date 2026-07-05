@@ -151,7 +151,103 @@ Space: O(1), we only use a few variables
 
 Mistake to avoid:
 - The full range is based on `len(nums)`, not the last value in the array because the array is not gauranteed to be sorted
-  
+
+
+
+## Arrays / Counting / Combinatorics
+### Pattern: Middle-Anchor Counting
+
+Use this pattern when:
+- You are counting triplets/subsequences of length 3
+- Index order matters: `i < j < k`
+- The elements do **not** need to be contiguous
+- You can think of each valid answer as:
+```text
+left element + middle element + right element
+```
+
+### Key Concept
+For an increasing subsequence of length 3:
+```text
+nums[left] < nums[middle] < nums[right]
+left < middle < right
+```
+
+Instead of building every subsequence manually, fix each possible element as the **middle**.
+
+Then count:
+```text
+left_smaller = number of values before middle that are smaller
+right_greater = number of values after middle that are greater
+```
+
+For the middle:
+```text
+valid subsequences = left_smaller * right_greater
+```
+
+Why multiply?
+Because of the multiplication rule:
+```text
+Each valid left choice can pair with each valid right choice.
+```
+Since the middle is already fixed, every combination forms:
+```text
+one left choice + fixed middle + one right choice
+```
+So the subsequence is automatically length 3
+
+### Mistake to Avoid
+Do **not** treat this like a sliding window.
+```text
+Subarray = contiguous
+Subsequence = order preserved, but can skip elements
+```
+
+Example:
+```python
+nums = [2, 1, 3, 4, 5]
+
+[2, 3, 5] is a subsequence
+It skips 1 and 4, but the order is preserved
+```
+
+### Solution
+```python
+def countIncreasingSubsequences(nums):
+    MOD = 10**9 + 7
+    subsequences = 0
+
+    for i in range(1, len(nums) - 1):
+        small_count = 0
+        big_count = 0
+
+        for j in range(i):
+            if nums[j] < nums[i]:
+                small_count += 1
+
+        for j in range(i + 1, len(nums)):
+            if nums[j] > nums[i]:
+                big_count += 1
+
+        subsequences += small_count * big_count
+        subsequences %= MOD
+
+    return subsequences
+```
+## Complexity
+Time: O(n**sup**2**sup**), nested for loops
+Space: O(1)
+
+## Core Mental Model
+```text
+For each possible middle:
+  count valid left choices
+  count valid right choices
+  multiply them
+  add to answer
+```
+
 
 ## Two Pointers
 ### 125. Valid Palindrome
