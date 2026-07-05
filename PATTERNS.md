@@ -236,7 +236,8 @@ def countIncreasingSubsequences(nums):
     return subsequences
 ```
 ## Complexity
-Time: O(n**sup**2**sup**), nested for loops
+Time: O(n<sup>2<sup>), nested for loops
+
 Space: O(1)
 
 ## Core Mental Model
