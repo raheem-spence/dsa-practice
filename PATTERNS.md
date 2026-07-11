@@ -249,6 +249,51 @@ For each possible middle:
   add to answer
 ```
 
+### 1395. Count Number of Teams
+Given: integer array `rating` where `rating[i]` represents the rating of the `ith` soldier
+
+Goal: return the number of teams of 3 soldiers `(i, j, k)` such that:
+- `i < j < k`
+- `rating[i] < rating[j] < rating[k]`
+- or `rating[i] > rating[j] > rating[k]`
+
+Pattern: Middle-Anchor Counting
+
+Approach:
+- Loop through every possible middle soldier
+- Count
+    - `left_smaller`
+    - `left_bigger`
+    - `right_smaller`
+    - `right_bigger`
+- Compute
+    - `increasing_teams = left_smaller * right_bigger`
+    - `decreasing_teams = left_bigger * right_smaller`
+- Add both values to the total number of teams
+
+Time: O(n<sup>2</sup>), nested for loops
+
+Space: O(1)
+
+Key Idea
+- Fix each soldier as the `middle` soldier
+- Count the valid left soldiers and the valid right soldiers
+- Every valid left soldier can pair with every valid right soldier, so the total number of teams using the current middle soldier is the product of the two counts.
+- This is an application of the `Multiplication Rule (Rule of Product)` in combinatorics
+
+Mistakes to avoid
+- Do not generate every possible triplet
+- Do not use a sliding window (the soldiers do `not` have to be contiguous)
+- Remember to count `both`
+    - increasing teams
+    - decreasing teams
+- If the ratings are guaranteed to be uniqe, using `else` works. If duplicates allowed, use explicit comparisions
+
+Related Problems:
+- Increasing Subsequences (Middle Anchor)
+- Decreasing Subsequences (Middle Anchor)
+- Mountain Triplets (Middle Anchor)
+
 
 ## Two Pointers
 ### 125. Valid Palindrome
