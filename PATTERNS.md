@@ -294,6 +294,29 @@ Related Problems:
 - Decreasing Subsequences (Middle Anchor)
 - Mountain Triplets (Middle Anchor)
 
+### 3583. Count Special Triplets
+Given: an integer array `nums`
+
+Goal: return the total number of special triplets such that
+- `0 <= i < j < k < n, where n = nums.length`
+- `nums[i] == nums[j] * 2`
+- `nums[k] == nums[j] * 2`
+
+Pattern: Middle-Anchor Frequency Counting
+
+Approach: Maintain two hash maps: one for the total count of each number and one for the seen count of each number as we iterate through the array. On each iteration we calculate the `target = n * 2` where `n` is the current number were on and the potential middle of a valid special triplet. Then we find the counts of the target that is left of the current number by accessing the seen count map. Next we add the current number to the seen count, we do it at this point because otherwise we'd count the current number as being on the left when its not on either side at this point. Next, we find the counts for the target on the right side by
+taking the difference between the total count for the target and the seen count for the target. We do so by accessing both hash maps where the target is the key. Lastly, we update the total number of special triplets by adding the product of the left choices and right choices to find the total number of special triplets for this particular middle number. Here we are using the `Multiplication Rule` aka `Rule of Rroduct`. Then take the modulo `10<sup>9</sup> + 7` of the special triplets value and return it.
+
+Time: O(n)
+
+Space: O(n), worst case every number is unique, so both hash maps store `n` keys
+
+Related Problems:
+- Count Number of Bad Pairs
+- Number of Good pairs
+- Count Nice Pairs in an Array
+- Count Good Meals
+
 
 ## Two Pointers
 ### 125. Valid Palindrome
