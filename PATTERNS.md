@@ -128,6 +128,47 @@ The majority element appears more than half the array length
 Alternative approach:
 Boyer-Moore Voting Algorithm can solve this in O(1) space, but the hash map version is clearer for now
 
+### 1512. Number of Good Pairs
+Given: integer array `nums`
+
+Goal: return the total number of good pairs where:
+- `i < j`
+- `nums[i] == nums[j]
+
+Pattern: hash map frequency counting
+
+Map: `num -> frequency of previous occurrences`
+
+Approach (One Pass):
+- Use a hash map to store how many times each number has appeared so far
+- Loop through `nums`
+- For the current number get its previous frequency from the hash map
+- Add that frequency to the total number of good pairs because the current number forms a good pair with every previous occurrence
+- Increment the frequency of the current number in the hash map
+
+Alternative Approach:
+- Count the frequency of every unique number
+- If a number appears `k` times, it contributes `k * (k - 1) // 2` good pairs
+- Sum the contribution of every unique number
+
+Time: O(n), we scan the array once
+
+Space: O(n), worst case every number is unique and stored in the hash map
+
+Key idea:
+The current element forms a good pair with every previous occurrence of the same value
+
+Mistakes to avoid:
+- Add the previous frequency before incrementing it
+- Do not multiply the value by the frequency: only the frequency matters
+- Remember the hash map stores teh number of previous occurrences, not the total occurrences
+
+Related Problems:
+- Count Number of Bad Pairs
+- Majority Element
+- First Unique Character in a String
+- Top K Frequent Elements
+
 
 ## Arrays & Math
 ### 268. Missing Number
