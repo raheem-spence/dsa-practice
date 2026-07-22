@@ -9,7 +9,7 @@ Goal: return an array `answer` such that `answer[i]` is equal to the product of 
 Pattern: prefix / suffix product
 
 Approach:
-- Make a left-to-right pass to store the product all elements to the left of eacj index in the `answer` array
+- Make a left-to-right pass to store the product all elements to the left of each index in the `answer` array
 - Make a right-to-left pass while maintaing a running right product
 - Multiply each stored left product by the current right product to obtain the final answer
 
