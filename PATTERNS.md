@@ -1,7 +1,25 @@
 # DSA Patterns
 
 ## Arrays & Hashing
+### 238. Product of Array Except Self
+Given: an integer array `nums`
 
+Goal: return an array `answer` such that `answer[i]` is equal to the product of all elements of `nums` except `nums[i]`
+
+Pattern: prefix / suffix product
+
+Approach:
+- Make a left-to-right pass to store the product all elements to the left of eacj index in the `answer` array
+- Make a right-to-left pass while maintaing a running right product
+- Multiply each stored left product by the current right product to obtain the final answer
+
+Time: O(n)
+
+Space: O(1) exta space (excluding the output array)
+
+Key idea:
+- During the first pass, `answer[i]` stores the product of all elements to the left of index `i`
+- During the second pass, maintain a running right product and multiply it into `answer[i]`
 ### 242. Valid Anagram
 Given: two strings s and t
 
