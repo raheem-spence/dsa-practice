@@ -1,6 +1,28 @@
 # DSA Patterns
 
 ## Arrays & Hashing
+### 219. Contains Duplicate II
+Given: an integer array `nums`, an integer `k`
+
+Goal: return `True` if there are tow distinct indices `i` and `j` in the array such that `nums[i] == nums[j]` and `abs(i - j) <= k`, otherwise `False`
+
+Pattern: arrays & hashing
+
+Approach:
+- Use a hashmap to store number -> latest index
+- Iterate through `nums`, if the current number has been seen before, compare the current index with its previous index
+- If the distance between the indices is at most `k`, we've found a valid duplicate, return `True`
+- Otherwise, update the hashmap with the current index so future comparisons use the most recent occurence
+- If we get the entire loop return `False`, no valid duplicate
+
+Time: O(n)
+
+Space: O(n)
+
+Key idea:
+- We are overwriting the old index of a number with the newest one so our future comparisons use the most recent occurence of that number
+- We dont need to use the abs() because the current index > stored index
+
 ### 238. Product of Array Except Self
 Given: an integer array `nums`
 
